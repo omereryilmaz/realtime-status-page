@@ -1,0 +1,4 @@
+Duckduckgo=duckduckgo.com
+Google=google.com
+Yahoo=yahoo.com
+New Server=192.168.56.104

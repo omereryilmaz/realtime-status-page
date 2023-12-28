@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Status Page</title>
+    <meta name="author" content="Omer Eryilmaz">
+    <meta name="keywords" content="status page, system monitoring">
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <!-- css -->
+    <link href="css/bootstrap-5/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="css/fontawesome/css/fontawesome.min.css" rel="stylesheet" >
+    <link href="css/fontawesome/css/solid.min.css" rel="stylesheet" >
+    <link href="css/fontawesome/css/regular.min.css" rel="stylesheet" >
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery/jquery-3.7.1.min.js"></script>
+    
+</head>
+<body>
+    <nav class="navbar fixed-top" style="height: 60px;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/" style="margin-left: auto; margin-right: auto;">
+          <img src="img/logo.svg" style="height: 40px; margin-top: -3px; float: left;" alt="">
+          <div style="float: left; margin-left: 5px; margin-top: -7px;">
+            <p class="fw-semibold fs-2 float-start" style="color: #FF3986;">Status</p>
+            <p class="fw-normal fs-2 float-end" style="color: #FF3986;">Page</p>
+          </div>       
+        </a>
+      </div>
+    </nav>
+    
+    <div class="main">
+        <!-- main container start -->
+        <div class="container">          
+            <div class="row system-summary">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-body text-center">
+                          <h5 class="card-title">Status All Of Systems</h5>
+                          <div class="card mt-3 mb-2 py-2 text-bg-secondary" id = "system-message-div">
+                            <p class="card-text fw-semibold" id = "system-message-text">
+                                ...
+                            </p>
+                          </div>
+                        </div>
+                        <div class="card-footer text-body-secondary text-end">
+                          Few seconds ago
+                        </div>
+                      </div> 
+                </div>
+            </div>
+
+            <div class="row" id="system-list">
+                
+            </div>
+
+        </div>
+        <!-- main container start -->
+    </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container" style="border-radius:5px 5px 0px 0px; max-width: 674px;">
+      <a href="https://github.com/omereryilmaz/realtime-status-page" style="font-size: 12px; color: #757575; text-decoration: none;">
+        <p class="text-center" >Powered by <i class="fa-solid fa-heart" style="font-size: 12px;"></i></p>
+      </a>        
+    </div>
+  </footer>
+
+    <script src="js/bootstrap-5/js/bootstrap.bundle.min.js"></script>
+    <script src="js/apexcharts/apexcharts.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/custom/status.js"></script>
+</body>
+</html>
