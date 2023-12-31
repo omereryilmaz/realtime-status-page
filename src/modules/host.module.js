@@ -16,8 +16,8 @@ module.exports = {
                     let host = {};
                     let i = element.split('=');
                     host['id'] = uuidv4().split('-')[0];
-                    host['name'] = i[0]
-                    host['address']= i[1].trim();
+                    host['name'] = textControl(i[0]);
+                    host['address']= sanitizeForLink(i[1].trim());
                     hosts.push(host);
                 });
             }        
@@ -52,5 +52,38 @@ module.exports = {
     getPrimaryHostStatus: async () => {
         return primaryHostStatus;
     }
+}
 
+const textControl =  (str) => {
+    let newStr = str;
+    if (str.length > 25) {
+        newStr = str.substring(0, 26) + '...';
+    }
+
+    return sanitize(newStr);
+}
+
+const sanitize = (str) => {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        "/": '&#x2F;',
+    };
+    const reg = /[&<>"'/]/ig;
+    return str.replace(reg, (match)=>(map[match]));
+}
+
+const sanitizeForLink = (str) => {
+    const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;'
+    };
+    const reg = /[&<>"']/ig;
+    return str.replace(reg, (match)=>(map[match]));
 }

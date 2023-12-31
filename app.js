@@ -62,11 +62,3 @@ const startPing = async (hosts) => {
         io.emit('hostStatus', statusList);
     }, 3000);
 }
-
-
-
-
-
-
-
-

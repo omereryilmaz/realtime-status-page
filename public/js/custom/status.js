@@ -131,7 +131,7 @@ const fillElements = async (hosts) => {
 
         let cardFooterDiv = document.createElement("div");
         cardFooterDiv.setAttribute("class", "card-footer text-body-secondary text-end m-0");
-        cardFooterDiv.innerHTML = hosts[i]['address'];
+        cardFooterDiv.innerHTML = addressControl(hosts[i]['address']);
 
         cardBodyRowDiv.appendChild(cardBodyCol1Div);
         cardBodyRowDiv.appendChild(cardBodyCol2Div);
@@ -157,6 +157,15 @@ const fillElements = async (hosts) => {
     
         systemList.appendChild(colDiv);
     } 
+}
+
+const addressControl = (str) => {
+    let newStr = str;
+    if (str.length > 35) {
+        newStr = str.substring(0, 36) + '...';
+    }
+
+    return newStr;
 }
 
 const getHosts = async () => {
